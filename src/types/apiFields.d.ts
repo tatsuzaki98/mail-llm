@@ -26,5 +26,19 @@ interface AppRecord {
 interface MailLogRecord extends AppRecord {
   受信メッセージ: MultiLineTextField;
   送信メッセージ: MultiLineTextField;
-  自動生成メッセージ: MultiLineTextField;
+  対応者: SingleLineTextField;
+  お客様名: SingleLineTextField;
+  マスタ番号: SingleLineTextField;
+  カテゴリ: SingleLineTextField;
+}
+
+interface PostRecord {
+  app: number;
+  record: {
+    '受信メッセージ': {value: string};
+    '送信メッセージ': {value: string};
+    '対応者': {value: string};
+    'お客様名': {value: string};
+    'カテゴリ': {value: string};
+  };
 }

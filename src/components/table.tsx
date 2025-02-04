@@ -21,13 +21,15 @@ const TableComponent = (): React.JSX.Element => {
       <h3 className='font-bold text-lg'>
         過去の対応履歴
       </h3>
-      <div className="overflow-y-scroll">
+      <div className="overflow-x-auto overflow-y-scroll max-w-full">
         <table className="table-auto w-full">
           <thead>
             <tr className="bg-gray-200">
               <th className="px-4 py-2">受信メッセージ</th>
               <th className="px-4 py-2">送信メッセージ</th>
-              <th className="px-4 py-2">自動生成メッセージ</th>
+              <th className="px-4 py-2">対応者</th>
+              <th className="px-4 py-2">お客様名</th>
+              <th className="px-4 py-2">カテゴリ</th>
             </tr>
           </thead>
           <tbody>
@@ -35,7 +37,9 @@ const TableComponent = (): React.JSX.Element => {
               <tr key={index} className="bg-white border-b">
                 <td className="px-4 py-2">{record.受信メッセージ.value}</td>
                 <td className="px-4 py-2">{record.送信メッセージ.value}</td>
-                <td className="px-4 py-2">{record.自動生成メッセージ.value}</td>
+                <td className="px-4 py-2">{record.対応者.value}</td>
+                <td className="px-4 py-2">{record.お客様名.value}</td>
+                <td className="px-4 py-2">{record.カテゴリ.value}</td>
               </tr>
             ))}
           </tbody>

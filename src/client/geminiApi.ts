@@ -25,6 +25,8 @@ export const performGemini = async (
     {text: 'output:'},
   ];
 
+  console.log(parts);
+
   return new Promise((resolve, reject) => {
     model.generateContent({
       contents: [{ role: "user", parts }],

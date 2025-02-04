@@ -9,7 +9,7 @@ const password = env.KINTONE_PASSWORD;
 
 // from .env
 const baseUrl = env.VITE_KINTONE_BASE_URL;
-const appId = 15;
+const appId = 20;
 
 const command = `npx kintone-dts-gen --base-url ${baseUrl} -u ${username} -p ${password} --app-id ${appId} -o src/types/fields.d.ts`;
 

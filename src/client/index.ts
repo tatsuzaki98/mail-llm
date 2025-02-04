@@ -4,3 +4,4 @@ import * as prod from './production';
 const isDev = import.meta.env.DEV;
 
 export const getMailLogRecords = isDev ? dev.getMailLogRecords : prod.getMailLogRecords;
+export const postMailLogRecord = isDev ? dev.postMailLogRecord : null;
