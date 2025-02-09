@@ -25,3 +25,6 @@ dist-ssr
 
 # dotfiles
 .env.local
+
+# Key
+/public/assets/env.js

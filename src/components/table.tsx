@@ -11,6 +11,8 @@ const TableComponent = (): React.JSX.Element => {
     getMailLogRecords,
   );
 
+  console.log(data);
+
   /**
    * Render
    */
@@ -35,9 +37,9 @@ const TableComponent = (): React.JSX.Element => {
           <tbody>
             {data?.records.map((record, index) => (
               <tr key={index} className="bg-white border-b">
-                <td className="px-4 py-2">{record.受信メッセージ.value}</td>
-                <td className="px-4 py-2">{record.送信メッセージ.value}</td>
-                <td className="px-4 py-2">{record.対応者.value}</td>
+                <td className="px-4 py-2">{record.お問合せ内容.value}</td>
+                <td className="px-4 py-2">{record.返信内容.value}</td>
+                <td className="px-4 py-2">{record.作成者.value.name}</td>
                 <td className="px-4 py-2">{record.お客様名.value}</td>
                 <td className="px-4 py-2">{record.カテゴリ.value}</td>
               </tr>

@@ -11,7 +11,12 @@ interface NumberField {type: 'NUMBER', value: string}
 interface SingleLineTextField {type: 'SINGLE_LINE_TEXT', value: string}
 interface MultiLineTextField {type: 'MULTI_LINE_TEXT', value: string}
 interface DateField {type: 'DATE', value: string | null}
-interface RadioButtonField {type: 'RADIO_BUTTON', value: string}
+interface RadioButtonField<T> {type: 'RADIO_BUTTON', value: T}
+interface UserSelectField {type: 'USER_SELECT', value: KintoneUser[]}
+
+type CategoryOption = "その他" | "料金制度" | "各種手続き" | "新規利用" | "水質" | "支払関連・請求書・口座振替" | "漏水対応" | "メータ・表示器・検針設備" | "大規模・都市計画法第32条" | "出水不良";
+type StateOption = "未処理" | "承認申請中" | "差し戻し" | "承認済み" | "対応済み";
+
 
 interface AppRecord {
   $id: IdField;
@@ -24,21 +29,23 @@ interface AppRecord {
 }
 
 interface MailLogRecord extends AppRecord {
-  受信メッセージ: MultiLineTextField;
-  送信メッセージ: MultiLineTextField;
-  対応者: SingleLineTextField;
+  お問合せ内容: MultiLineTextField;
   お客様名: SingleLineTextField;
-  マスタ番号: SingleLineTextField;
-  カテゴリ: SingleLineTextField;
+  カテゴリ: RadioButtonField<CategoryOption>;
+  承認コメント: MultiLineTextField;
+  承認者: UserSelectField;
+  状態: RadioButtonField<StateOption>;
+  返信内容: MultiLineTextField;
 }
 
 interface PostRecord {
   app: number;
   record: {
-    '受信メッセージ': {value: string};
-    '送信メッセージ': {value: string};
+    'お問合せ内容': {value: string};
+    '返信内容': {value: string};
     '対応者': {value: string};
     'お客様名': {value: string};
     'カテゴリ': {value: string};
+
   };
 }

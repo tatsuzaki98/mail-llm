@@ -20,8 +20,8 @@ export const postMailLogRecord = async (record: PostRecord): Promise<void> => {
   const recordToPost = {
     app: record.app,
     record: {
-      '受信メッセージ': {value: record.record['受信メッセージ'].value},
-      '送信メッセージ': {value: record.record['送信メッセージ'].value},
+      'お問合せ内容': {value: record.record['お問合せ内容'].value},
+      '返信内容': {value: record.record['返信内容'].value},
       '対応者': {value: record.record['対応者'].value},
       'お客様名': {value: record.record['お客様名'].value},
       'カテゴリ': {value: record.record['カテゴリ'].value},

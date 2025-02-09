@@ -1,7 +1,7 @@
 import { GoogleGenerativeAI } from "@google/generative-ai";
 import { instructions } from "./llmConfig";
 
-const apiKey = import.meta.env.VITE_GEMINI_API_KEY;
+const apiKey = window.GEMINI_API_KEY;
 const genAI = new GoogleGenerativeAI(apiKey);
 const model = genAI.getGenerativeModel({
   model: "gemini-1.5-flash",
@@ -24,8 +24,6 @@ export const performGemini = async (
     {text: `input: ${arg.query}`},
     {text: 'output:'},
   ];
-
-  console.log(parts);
 
   return new Promise((resolve, reject) => {
     model.generateContent({
